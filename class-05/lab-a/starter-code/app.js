@@ -18,7 +18,6 @@ function sum(a, b) {
 
 // Here is the test for sum(); uncomment it to run it
  testSum(4, 7);
-
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
 /////////////////////////////////////
@@ -56,11 +55,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { 
-    let sum = a + b + c ;
-    let multiply = a * b * c;
-    let statement1 = `${a} and ${b} and ${c} sum to ${sum}.`;
-    let statement2 = `The product of ${a} and ${b} and ${c} is ${multiply}.`;
-    return [sum , multiply , statement1 , statement2]
+    let x = sum(a,b);
+    let y = sum(x[0],c)
+    let z = multiply(a,b);
+    let t = multiply(z[0],c);
+    let statement1 = `${a} and ${b} and ${c} sum to ${y[0]}.`;
+    let statement2 = `The product of ${a} and ${b} and ${c} is ${t[0]}.`;
+    return [y[0], t[0] , statement1 , statement2]
     //eslint-disable-line
 
 }
@@ -83,13 +84,18 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 let testArray = [2, 3, 4]; //eslint-disable-line
 
-function sumArray(sumArr) { //eslint-disable-line
+function sumArray(sumArr) { 
+    let tree = sum(sumArr[0], sumArr[1]);
+    let tree2 = sum(tree[0],sumArr[2]);
+    let statement = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${tree2[0]} is their sum.`
+    return ([tree2[0] , statement])
+        //eslint-disable-line
 
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+ testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
